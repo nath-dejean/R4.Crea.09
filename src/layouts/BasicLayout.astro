@@ -5,7 +5,7 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<!-- <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -15,8 +15,55 @@ import "../styles/global.css";
   </head>
   <body>
 	<Header/>
-	<!-- Permet de lire le contenu de la balise -->
 
 	<slot/>
   </body>
+</html> -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div class="flex flex-col min-h-screen items-center px-4">
+        <!-- Navigation Bar -->
+        <nav class="w-full max-w-3xl flex justify-between items-center py-4">
+            <!-- Profile Icon -->
+            <div class="flex items-center gap-3">
+                <img src="/profile.jpg" alt="Profile" class="w-10 h-10 rounded-full" />
+            </div>
+            <ul class="flex gap-6">
+                <li><a href="/R4.Crea.09" class="hover:underline">Home</a></li>
+                <li><a href="/R4.Crea.09/blog" class="hover:underline">Blog</a></li>
+                <li><a href="/R4.Crea.09/about" class="hover:underline">About</a></li>
+                <li><a href="/R4.Crea.09/post" class="hover:underline">Post</a></li>
+            </ul>
+            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700">
+                🌙
+            </button>
+        </nav>
+
+        <article class="flex-1 w-full max-w-3xl">
+            <slot />
+        </article>
+
+        <footer class="w-full max-w-3xl text-center py-6">
+            <p class="mb-2">Follow me</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="hover:underline">X</a>
+                <a href="#" class="hover:underline">GitHub</a>
+                <a href="#" class="hover:underline">LinkedIn</a>
+            </div>
+            <p class="mt-4 text-sm">Made with ❤️ and ☕</p>
+        </footer>
+    </div>
+    
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
+</body>
 </html>
